@@ -212,7 +212,7 @@ for i in [0.1, 1]:
     for j in [0, 1]:
         model.S = i
         model.I = j
-        sim_data = model.simulate(0, 50, 51)
+        sim_data = model.simulate(0, 25, 51)
         dct[i][j] = pandas.DataFrame(sim_data, columns=sim_data.colnames)
         # plot(sim_data, selections=['[Ap]', '[Bp]', '[Cp]'], title=(i, j))
         model.reset()
