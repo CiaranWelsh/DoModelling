@@ -1,0 +1,33 @@
+%%
+%% Author: ncw135
+%% 13/05/2019
+%%
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage{cleveref}
+\usepackage{subcaption}
+% Document
+
+\title{Task2: Parameter estimation}
+\begin{document}
+\maketitle
+    In task1 you built a model from a full description of the topology, initial conditions and parameters. This
+    time you are given the topology and some experimental data, but you will have to find the parameters yourself. Its
+    a good idea, when you get time, to read some literature on parameter estimation of ODE models. Its not essential,
+    since mostly Copasi takes care of the details, but it is helpful to have at least a rudimentary understanding of
+    what is going on...
+
+    In model 2, A is activated by the presence of S with Hill kinetics. Hill kinetics are a common way of modelling
+    receptor activation. Then we have a small phosphorylation cascade starting at Ap which activates B which in turn
+    activates C. Both forwards and backwards reactions follow michaelis-menten kinetics except for the activation of B
+    which is instead competitively inhibited by I. Note that the competitive inhibition rate law converges to the
+    michaelis menten when the inhibitor is not present. 
+
+
+\end{document}
