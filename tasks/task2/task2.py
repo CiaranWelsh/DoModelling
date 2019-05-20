@@ -87,30 +87,6 @@ end
 #
 # print(sim.colnames)
 
-def plot(data, selections=None, **kwargs):
-
-    if not selections:
-        selections = data.colnames
-        selections = [i for i in selections if i not in ['time']]
-    else:
-        assert isinstance(selections, list)
-
-    df = pd.DataFrame(data, columns=data.colnames)
-    df = df[selections]
-
-    fig = plt.figure()
-
-    if kwargs.get('title'):
-        plt.title(kwargs['title'])
-
-    for i in selections:
-        plt.plot(data['time'], df[i], label=i)
-
-    plt.legend(loc='best')
-    # plt.legend(loc=(1, 0.1))
-    seaborn.despine(fig=fig, top=True, right=True)
-    plt.xlabel('Time(s)')
-    plt.ylabel('Concentration nmol/ml')
 
 
 # plot(sim, selections=['[A]', '[B]', '[C]'])
