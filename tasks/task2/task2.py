@@ -221,7 +221,10 @@ for i in [0.1, 1]:
 plt.show()
 
 df = pandas.concat(dct)
-df.index.names = ['S', 'I', 'time']
+df.index = df.index.droplevel(2)
+df.index.names = ['S', 'I']
+df = df.reset_index().set_index(['S', 'I', 'time'])
+print(df)
 fname = 'task2_experimental_data.csv'
 df.to_csv(fname)
 
