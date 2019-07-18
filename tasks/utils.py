@@ -1,3 +1,35 @@
+import matplotlib.pyplot as plt
+import matplotlib
+import pandas
+matplotlib.use('TkAgg')
+import seaborn
+
+def plot(data, selections=None, **kwargs):
+
+    if not selections:
+        selections = data.colnames
+        selections = [i for i in selections if i not in ['time']]
+    else:
+        assert isinstance(selections, list)
+
+    df = pandas.DataFrame(data, columns=data.colnames)
+    df = df[selections]
+
+    fig = plt.figure()
+
+    if kwargs.get('title'):
+        plt.title(kwargs['title'])
+
+    for i in selections:
+        plt.plot(data['time'], df[i], label=i)
+
+    plt.legend(loc='best')
+    # plt.legend(loc=(1, 0.1))
+    seaborn.despine(fig=fig, top=True, right=True)
+    plt.xlabel('Time(s)')
+    plt.ylabel('Concentration nmol/ml')
+
+
 FUNCTIONS = """
 
 function MM(km, Vmax, S)
@@ -39,10 +71,13 @@ function MM(km, Vmax, S)
     function Hill(km, beta, n, X)
         beta * X^n / (km*n + X*n)
     end
-    
+
     function HillWithKcat(km, kcat, n, X, E)
         kcat*E* X^n / (km*n + X*n)
     end
 """
 
 
+def list_attrs(x):
+    for i in sorted(dir(x)):
+        print(i)
