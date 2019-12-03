@@ -1,0 +1,46 @@
+\documentclass[../../main]{subfiles}
+
+\begin{document}
+
+\section{Simulation}
+
+\begin{Task}[label=TimeSeries]{Run A time series}
+Run a time series with both tellurium and PyCoTools on your model.
+\end{Task}
+
+\begin{Task}[label=CreateFakeData]{Create some fake data for fitting to your model}
+    \begin{itemize}
+        \item Create a new global variable representing the full path to a (yet non-existent) data file under the `COPASI\_FORMATTED\_DATA\_DIR'.
+        \item Run a time series using either tellurium or pycotools.
+        \item Ensure your variable names are exactly the same as those used in your model
+        \item Save the data to the newly created global variable (using `pandas.csv').
+    \end{itemize}
+\end{Task}
+
+\begin{Task}[label=ManualParameterEstimation]{Parameter Estimation in Copasi}
+    Open your model in copasi and set up a parameter estimation with your simulated data. Pick the
+    parameters you want to estimate and run a few algorithms, starting from random initial conditions.
+\end{Task}
+
+\begin{Task}[label=AutoParameterEstimation]{Parameter Estimation Using PyCoTools}
+    Your parameter estimation shouldn't take long so take a moment to
+    play around with the options available in PyCoTools. For the most part, they are the same as those available in COPASI.
+    Configure the following estimations
+    \begin{itemize}
+        \item Estimate all global quantities
+        \item Estimate all metabolites
+        \item Estimate all global quantities and metabolites
+        \item Change the algorithm you are using to something different. Also change the hyperparameters (like iteration limit or population size)
+    \end{itemize}
+\end{Task}
+
+
+
+
+\end{document}
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{site}
+\PYG{c+c1}{\PYGZsh{} Add path to sources root to Python\PYGZsq{}s PATH variable}
+\PYG{n}{site}\PYG{o}{.}\PYG{n}{addsitedir}\PYG{p}{(}\PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{dirname}\PYG{p}{(}\PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{dirname}\PYG{p}{(}\PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{abspath}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{))))}
+\PYG{c+c1}{\PYGZsh{} note: Pycharm already doesn\PYGZsq{}t this for you.}
+\PYG{c+c1}{\PYGZsh{}  But doesn\PYGZsq{}t hurt to add it here anyway}
+
+\PYG{c+c1}{\PYGZsh{} Go and get the model string by importing it from your models\PYGZus{}strings module}
+\PYG{k+kn}{from} \PYG{n+nn}{example\PYGZus{}project.models.model\PYGZus{}strings} \PYG{k+kn}{import} \PYG{n}{model\PYGZus{}string}
+
+\PYG{c+c1}{\PYGZsh{} imports all the global variables (notice that we}
+\PYG{c+c1}{\PYGZsh{}  can print out the WORKING\PYGZus{}DIRECTORY variable)}
+\PYG{k+kn}{from} \PYG{n+nn}{example\PYGZus{}project} \PYG{k+kn}{import} \PYG{o}{*}
+
+
+\PYG{c+c1}{\PYGZsh{} Any functions or classes you write will go here}
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+
+\PYG{c+c1}{\PYGZsh{} Any code that uses the functions or classes your have created above,}
+\PYG{c+c1}{\PYGZsh{} will go here. We will be using flags defined in our \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py}
+\PYG{c+c1}{\PYGZsh{} to modify the behaviour of this script. Since the Flags are boolean,}
+\PYG{c+c1}{\PYGZsh{} we just us a simple if statement for each of them}
+
+\PYG{k}{if} \PYG{n}{PRINT\PYGZus{}WORKING\PYGZus{}DIRECTORY}\PYG{p}{:}
+\PYG{c+c1}{\PYGZsh{} prints /home/ncw135/Documents/ExampleProject/example\PYGZus{}project}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{WORKING\PYGZus{}DIRECTORY}\PYG{p}{)}
+\end{Verbatim}

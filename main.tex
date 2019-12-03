@@ -4,10 +4,8 @@
 \usepackage{subfiles}
 \usepackage{hyperref}
 \hypersetup{
-colorlinks=true,
-linkcolor=blue,
-filecolor=magenta,
-urlcolor=blue,
+     colorlinks   = true,
+     citecolor    = blue
 }
 
 
@@ -24,12 +22,19 @@ toptitle=1mm,bottomtitle=1mm,oversize}}
 \newtcolorbox{hintBox}{textmarker,
 borderline west={6pt}{0pt}{yellow},
 colback=yellow!10!white}
+
 \newtcolorbox{importantBox}{textmarker,
 borderline west={6pt}{0pt}{red},
 colback=red!10!white}
+
 \newtcolorbox{noteBox}{textmarker,
 borderline west={6pt}{0pt}{green},
 colback=green!10!white}
+
+\newtcolorbox{rememberBox}{textmarker,
+borderline west={6pt}{0pt}{blue},
+colback=blue!10!white}
+
 \newtcolorbox[auto counter, number within=chapter,
 number freestyle={\noexpand\thesection.\noexpand\arabic{\tcbcounter}}
 ]{Task}[2][]{%
@@ -39,7 +44,6 @@ fonttitle=\bfseries,
 title=Task~\thetcbcounter: #2,
 #1
 }
-
 
 % define commands for easy access
 \newcommand{\note}[1]{\begin{noteBox}
@@ -51,16 +55,25 @@ title=Task~\thetcbcounter: #2,
 \newcommand{\important}[1]{\begin{importantBox}
                                \textbf{Important:} #1
 \end{importantBox}}
+
 \newcommand{\task}[1]{\begin{taskBox}
                           \textbf{Task:} #1
 \end{taskBox}}
 
-% define commands for easy bash / python pigments
-\newcommand{\bash}[1]{\begin{minted}{bash} #1 \end{minted}}
-\newcommand{\python}[1]{\begin{minted}{python} #1 \end{minted}}
 
+\newcommand{\remember}[1]{\begin{rememberBox}
+                          \textbf{Remember:} #1
+\end{rememberBox}}
 
 \usepackage{minted}
+
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+\usepackage{graphicx}
+\usepackage{parskip}
+%always make last package imported
+%\usepackage{cleveref}
 
 \title{Modelling stuff}
 \author{Ciaran Welsh}
@@ -73,24 +86,22 @@ title=Task~\thetcbcounter: #2,
     This document is essentially a list of practical computational exercises designed to try and distribute some of what
     I have learnt over the years.
 
-    ... more introduction when content is ready.
-    \begin{Task}{First example}
-        sdsd
-    \end{Task}
+    \section{Reading material}
+    Here are some suggested papers to read preferably before the tutorial sessions. The better you understand this
+    stuff before the tutorials, the more you'll get out of them.
 
-    %    \subfile{EnvConfig/environment_config.tex}
-    %    \task{This is a note}
+    \begin{itemize}
+        \item \cite{raue2013lessons}
+        \item \cite{alon2007network}
+        \item \href{https://www.tutorialspoint.com/python/python_modules.htm}{Python Modules, packages and subpackages}
+    \end{itemize}
+
+    \subfile{EnvConfig/environment_config.tex}
+    \subfile{ODEModels/ode_models.tex}
+
+    \bibliography{references}
 
 \end{document}
-
-
-
-
-
-
-
-
-
 
 
 
