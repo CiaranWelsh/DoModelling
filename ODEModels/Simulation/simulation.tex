@@ -7,11 +7,14 @@ In this section, you'll be bombarded with a bunch of tasks designed to get you a
 PyCoTools. Since both tools work with Antimony strings, you can use both tools seemlessly
 with your model.
 
-You should use the tellurium and PyCoTools documentation to work out how to do the
-
 \begin{Task}[label=TimeSeries]{Run A time series}
 Run a time series with both tellurium and PyCoTools on your model. Plot the time series using both tools.
     Plot the data using `matplotlib'.
+\end{Task}
+
+\begin{Task}[label=SteadyState]{Run A steady state simulation}
+    Run a steady state simulation with tellurium. Note that the steady state task is not supported by PyCoTools, so you'll have to open the model with the user interface
+    if you want to run a steady state with COPASI.
 \end{Task}
 
 \begin{Task}[label=CreateFakeData]{Create some fake data for fitting to your model}
@@ -58,19 +61,48 @@ Run a time series with both tellurium and PyCoTools on your model. Plot the time
 \end{Task}
 
 \begin{Task}[label=VizPE]{Visualising Parameter Estimation Results}
-    That that we have
+    Now that we have some parameter estimation data we can produce some diagnostic plots
+    to evaluate the estimations performance and compare simulated versus experimental data.
+
+    \begin{itemize}
+        \item Plot a waterfall plot
+        \item Plot a boxplot of you parameter distributions
+        \item Plot a violin of you parameter distributions
+        \item Plot the solution of the best fitting parameters against the experimental data. Note
+        that there are features in the `pycotools.viz' module for this.
+        \item Read the parameter estimation data into Python using the `viz.Parse' class.
+        \item Explore the parameter estimation data using pandas.
+        \item Insert best parameters into the model.
+        \item Insert best parameters into the model and open with the COPASI UI. Simulate the
+        parameter estimations using the current solution statics method to visualise the experiment
+        versus simulated data within copasi.
+        \item Insert the second best parameter set into the model and repeat the above.
+    \end{itemize}
 
 \end{Task}
-    Plot time series
-    plot parameter estimations
-    run steady state with roadrunner and with copasi
-    Insert parameters intoa model
-    plotting the best fit.
-    accessing parameter estimation data.
-    using pycotools on the cluster
-    using the advanced interface
-    profile likelihoods
 
+\begin{Task}[label=ProfileLikelihoods]{Profile Likelihoods}
+    Perform an identifiability analysis using the Profile likelihood method using PyCoTools. Due to a
+    unfortunate mishap, I forgot to rewrite the code for visualising profile likelihoods after jazzing up
+    PyCoTools. Optionally plot the profile likelihoods yourself using matplotlib and seaborn. You can parse the
+    data into Python using the usual `viz.Parse' 'class.
+\end{Task}
+
+\begin{Task}[label=AdvancedInterface]{Using the low level interface}
+    The ParameterEstimation.Context takes care of all of the detailed arguments required
+    to configure a parameter estimation. However, sometimes it is necessary to have a more
+    fine grained level of control over the configuration.
+
+    The ParameterEstimation.Context class exists in order to construct a ParameterEstimation.Config object.
+    However it is also possible to just create the Config object yourself.
+    \begin{itemize}
+        \item Start by using the Context class to create a template for your configuration.
+        \item When printed, the config object in yaml format.
+        \item Print the resulting config object and copy and paste it into a new file with a .yaml extension.
+        \item
+    \end{itemize}
+
+\end{Task}
 
 
 
