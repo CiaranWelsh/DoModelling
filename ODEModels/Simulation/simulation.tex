@@ -3,38 +3,64 @@
 \begin{document}
 
 \section{Simulation}
+In this section, you'll be bombarded with a bunch of tasks designed to get you acquainted with the tellurium
+PyCoTools. Since both tools work with Antimony strings, you can use both tools seemlessly
+with your model.
+
+You should use the tellurium and PyCoTools documentation to work out how to do the
 
 \begin{Task}[label=TimeSeries]{Run A time series}
-Run a time series with both tellurium and PyCoTools on your model.
+Run a time series with both tellurium and PyCoTools on your model. Plot the time series using both tools.
+    Plot the data using `matplotlib'.
 \end{Task}
 
 \begin{Task}[label=CreateFakeData]{Create some fake data for fitting to your model}
+    To demonstrate parameter estimation, the quickest way is to simulate some data from the
+    model you have built and configure a parameter estimation using this simulated data.
     \begin{itemize}
-        \item Create a new global variable representing the full path to a (yet non-existent) data file under the `COPASI\_FORMATTED\_DATA\_DIR'.
+        \item Create a new variable in your `\_\_init\_\_.py' to hold the full path to a
+        (yet non-existent) data file under the `COPASI\_FORMATTED\_DATA\_DIR'.
+        As this is a global variable (not to be confused with a `global quantity' inside the model)
+        used elsewhere in the project, make the name all capital letters.
         \item Run a time series using either tellurium or pycotools.
-        \item Ensure your variable names are exactly the same as those used in your model
+        \item Ensure your variable names are exactly the same as those used in your model. If you have used
+        tellurium, you should convert your results object to a
+        `\href{https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html}{pandas.DataFrame} so you can easily
+        modify the names of the columns (accessed with `df.columns') and easily save the data to file.
         \item Save the data to the newly created global variable (using `pandas.csv').
     \end{itemize}
 \end{Task}
 
 \begin{Task}[label=ManualParameterEstimation]{Parameter Estimation in Copasi}
     Open your model in copasi and set up a parameter estimation with your simulated data. Pick the
-    parameters you want to estimate and run a few algorithms, starting from random initial conditions.
+    parameters you want to estimate, define some plots (bottom right corner) and try out a few algorithms.
+    Make sure the `random initial conditions' button is checked. Play around with the algorithms hyperparameters and
+    notice how they affect convergance.
 \end{Task}
 
 \begin{Task}[label=AutoParameterEstimation]{Parameter Estimation Using PyCoTools}
-    Your parameter estimation shouldn't take long so take a moment to
-    play around with the options available in PyCoTools. For the most part, they are the same as those available in COPASI.
-    Configure the following estimations
+    Configure and run a parameter estimation using PyCoTools. PyCoTools essentially automates the procedure
+    from the previous task.
+    Play around with the options in PyCoTools by configuring the a parameter estimation to setup all the following
+    parameter estimations. When changing from one configuration to another, change the `problem' or `fit' settings
+    to isolate new results from previous runs.
+
     \begin{itemize}
+        \item Use the `problem' and `fit' settings to organise your
         \item Estimate all global quantities
         \item Estimate all metabolites
         \item Estimate all global quantities and metabolites
         \item Change the algorithm you are using to something different. Also change the hyperparameters (like iteration limit or population size)
-        \item Run a parameter estimation in `parallel' mod
+        \item Run a parameter estimation in `parallel' mode
+        \item Use the `prefix' option to be selective about parameters you are estimating.
+        \item \note{PyCharms find and replace feature is particularly useful when renaming parameters to include the prefix}
     \end{itemize}
 \end{Task}
 
+\begin{Task}[label=VizPE]{Visualising Parameter Estimation Results}
+    That that we have
+
+\end{Task}
     Plot time series
     plot parameter estimations
     run steady state with roadrunner and with copasi
