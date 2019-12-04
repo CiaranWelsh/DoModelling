@@ -2,17 +2,17 @@
 \usepackage{graphicx}
 \begin{document}
     \section{Model Construction}
-    ODE models in systems biology are best built from a visual representation the network, otherwise it
+    ODE models in systems biology are best built from a visual representation of the network, otherwise it
     is easy to get get confused and make mistakes. The networks should be as tidy as possible. There is no use
-    building a messy network with wires crossing wires everywhere because that literally detracts from the
+    building a messy network with wires crossing wires everywhere because that detracts from the
     purpose of having a network: to guide your thinking about how the network is going to behave.
 
     Biochemical networks are often drawn in a cartoon format at the end of a mechanistic biology paper. These are often
-    ambiguous and should be avoided. Instead, a good apprach is to draw a wiring diagram (Figure \ref{fig:model_construction:wiring_diagram})
+    ambiguous and should be avoided. Instead, a good approach is to draw a wiring diagram (Figure \ref{fig:model_construction:wiring_diagram})
     on paper to get a network that seems reasonable and then use \href{http://www.celldesigner.org/}{CellDesigner} to make the representation
     more formal.
 
-    \note{The arrows in these networks define the general relationship between model components
+    \note{The arrows in these networks define the general relationship between model components,
     but not the exact mathematical relationship. For instance, an arrow between A and B might represent a
     mass action relationship or some other kind of rate law (i.e. Michaelis-Menten)}.
 
