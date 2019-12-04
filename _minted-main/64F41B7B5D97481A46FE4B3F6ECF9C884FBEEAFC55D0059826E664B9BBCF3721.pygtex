@@ -6,7 +6,7 @@
 \PYG{c+c1}{\PYGZsh{} note: Pycharm already does this for you.}
 \PYG{c+c1}{\PYGZsh{} But doesn\PYGZsq{}t hurt to add it here anyway}
 
-\PYG{c+c1}{\PYGZsh{} Go and get the model string by importing it from your models\PYGZus{}strings module}
+\PYG{c+c1}{\PYGZsh{} Get the model string by importing it from your models\PYGZus{}strings module}
 \PYG{k+kn}{from} \PYG{n+nn}{example\PYGZus{}project.models.model\PYGZus{}strings} \PYG{k+kn}{import} \PYG{n}{model\PYGZus{}string}
 
 \PYG{c+c1}{\PYGZsh{} imports all the global variables (notice that we}
