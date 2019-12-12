@@ -9,7 +9,7 @@ with your model.
 
 \begin{Task}[label=TimeSeries]{Run A time series}
 Run a time series with both tellurium and PyCoTools on your model. Plot the time series using both tools.
-    Plot the data using `matplotlib'.
+    Plot the data using python{matplotlib).
 \end{Task}
 
 \begin{Task}[label=SteadyState]{Run A steady state simulation}
@@ -21,23 +21,23 @@ Run a time series with both tellurium and PyCoTools on your model. Plot the time
     To demonstrate parameter estimation, the quickest way is to simulate some data from the
     model you have built and configure a parameter estimation using this simulated data.
     \begin{itemize}
-        \item Create a new variable in your `\_\_init\_\_.py' to hold the full path to a
-        (yet non-existent) data file under the `COPASI\_FORMATTED\_DATA\_DIR'.
-        As this is a global variable (not to be confused with a `global quantity' inside the model)
+        \item Create a new variable in your python{__init__.py) to hold the full path to a
+        (yet non-existent) data file under the python{COPASI_FORMATTED\_DATA\_DIR).
+        As this is a global variable (not to be confused with a python{global quantity) inside the model)
         used elsewhere in the project, make the name all capital letters.
         \item Run a time series using either tellurium or pycotools.
         \item Ensure your variable names are exactly the same as those used in your model. If you have used
         tellurium, you should convert your results object to a
-        `\href{https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html}{pandas.DataFrame} so you can easily
-        modify the names of the columns (accessed with `df.columns') and easily save the data to file.
-        \item Save the data to the newly created global variable (using `pandas.csv').
+        \href{https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html}{pandas.DataFrame} so you can easily
+        modify the names of the columns (accessed with python{df.columns)) and easily save the data to file.
+        \item Save the data to the newly created global variable (using python{pandas.csv)).
     \end{itemize}
 \end{Task}
 
 \begin{Task}[label=ManualParameterEstimation]{Parameter Estimation in Copasi}
     Open your model in copasi and set up a parameter estimation with your simulated data. Pick the
     parameters you want to estimate, define some plots (bottom right corner) and try out a few algorithms.
-    Make sure the `random initial conditions' button is checked. Play around with the algorithms hyperparameters and
+    Make sure the ash{random initial conditions) button is checked. Play around with the algorithms hyperparameters and
     notice how they affect convergance.
 \end{Task}
 
@@ -45,62 +45,75 @@ Run a time series with both tellurium and PyCoTools on your model. Plot the time
     Configure and run a parameter estimation using PyCoTools. PyCoTools essentially automates the procedure
     from the previous task.
     Play around with the options in PyCoTools by configuring the a parameter estimation to setup all the following
-    parameter estimations. When changing from one configuration to another, change the `problem' or `fit' settings
+    parameter estimations. When changing from one configuration to another, change the python{problem) or python{fit) settings
     to isolate new results from previous runs.
 
     \begin{itemize}
-        \item Use the `problem' and `fit' settings to organise your
+        \item Use the python{problem) and python{fit) settings to organise your parameter estimations into folders
         \item Estimate all global quantities
         \item Estimate all metabolites
         \item Estimate all global quantities and metabolites
-        \item Change the algorithm you are using to something different. Also change the hyperparameters (like iteration limit or population size)
-        \item Run a parameter estimation in `parallel' mode
-        \item Use the `prefix' option to be selective about parameters you are estimating.
+        \item Change the algorithm you are using to something different (e.g. particle swarm).
+        Also, change the hyperparameters of the algorithm. What impact do they have the results and convergance?
+        \item Run a parameter estimation in \python{parallel} mode
+        \item Use the \python{prefix} option to be selective about parameters you are estimating.
         \item \note{PyCharms find and replace feature is particularly useful when renaming parameters to include the prefix}
     \end{itemize}
 \end{Task}
 
 \begin{Task}[label=VizPE]{Visualising Parameter Estimation Results}
-    Now that we have some parameter estimation data we can produce some diagnostic plots
-    to evaluate the estimations performance and compare simulated versus experimental data.
+Now that we have some parameter estimation data we can produce some diagnostic plots
+to evaluate the estimations performance and compare simulated versus experimental data.
 
-    \begin{itemize}
-        \item Plot a waterfall plot
-        \item Plot a boxplot of you parameter distributions
-        \item Plot a violin of you parameter distributions
-        \item Plot the solution of the best fitting parameters against the experimental data. Note
-        that there are features in the `pycotools.viz' module for this.
-        \item Read the parameter estimation data into Python using the `viz.Parse' class.
-        \item Explore the parameter estimation data using pandas.
-        \item Insert best parameters into the model.
-        \item Insert best parameters into the model and open with the COPASI UI. Simulate the
-        parameter estimations using the current solution statics method to visualise the experiment
-        versus simulated data within copasi.
-        \item Insert the second best parameter set into the model and repeat the above.
-    \end{itemize}
+\begin{itemize}
+\item Plot a waterfall plot
+\item Plot a boxplot of you parameter distributions
+\item Plot a violin of you parameter distributions
+\item Plot the solution of the best fitting parameters against the experimental data. Note
+that there are features in the python{pycotools.viz) module for this.
+\item Read the parameter estimation data into Python using the python{viz.Parse) class.
+\item Explore the parameter estimation data using pandas.
+\item Insert best parameters into the model.
+\item Insert best parameters into the model and open with the COPASI UI. Simulate the
+parameter estimations using the current solution statics method to visualise the experiment
+versus simulated data within copasi.
+\item Insert the second best parameter set into the model and repeat the above.
+\end{itemize}
 
 \end{Task}
 
 \begin{Task}[label=ProfileLikelihoods]{Profile Likelihoods}
-    Perform an identifiability analysis using the Profile likelihood method using PyCoTools. Due to a
-    unfortunate mishap, I forgot to rewrite the code for visualising profile likelihoods after jazzing up
-    PyCoTools. Optionally plot the profile likelihoods yourself using matplotlib and seaborn. You can parse the
-    data into Python using the usual `viz.Parse' 'class.
+Perform an identifiability analysis using the Profile likelihood method using PyCoTools. Due to a
+unfortunate mishap, I forgot to rewrite the code for visualising profile likelihoods after jazzing up
+PyCoTools. Optionally plot the profile likelihoods yourself using matplotlib and seaborn. You can parse the
+data into Python using the usual python{viz.Parse) 'class.
 \end{Task}
 
 \begin{Task}[label=AdvancedInterface]{Using the low level interface}
-    The ParameterEstimation.Context takes care of all of the detailed arguments required
-    to configure a parameter estimation. However, sometimes it is necessary to have a more
-    fine grained level of control over the configuration.
+The ParameterEstimation.Context takes care of all of the detailed arguments required
+to configure a parameter estimation. However, sometimes it is necessary to have a more
+fine grained level of control over the configuration.
 
-    The ParameterEstimation.Context class exists in order to construct a ParameterEstimation.Config object.
-    However it is also possible to just create the Config object yourself.
-    \begin{itemize}
-        \item Start by using the Context class to create a template for your configuration.
-        \item When printed, the config object in yaml format.
-        \item Print the resulting config object and copy and paste it into a new file with a .yaml extension.
-        \item
-    \end{itemize}
+The ParameterEstimation.Context class exists in order to construct a ParameterEstimation.Config object.
+However it is also possible to just create the Config object yourself. See the docs for more
+information on this. We'll be using a yaml file to hold our configuration options and then we'll
+read those options into PyCoTools.
+
+\note{It is not necessary to actually run parameter estimations here. The point of this task
+is to show you how flexible the configuration options are using PyCoTools and COPASI. Therefore,
+set \python{run_mode=False} and open the model (using \python{model.open()}) each time you
+run your program. What changes do you see in the parameter estimation task? }
+\begin{itemize}
+\item Start by using the Context class to create a template for your configuration.
+\item When printed, the config object in yaml format. Print the config object
+and copy and paste it into a new file with a .yaml extension.
+\item Load the configuration into PyCoTools using the \python{tasks.ParameterEstimation.Config.from_yaml}
+static method.
+\item Setup different boundary conditions for several of your estimated parameters.
+\item Modify the \python{affected_experiment} option
+\item Add a constraint item
+\item Play around with the other various options.
+\end{itemize}
 
 \end{Task}
 

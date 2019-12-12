@@ -45,8 +45,23 @@
 
     \begin{Task}[label=AntimonyString]{Build an Antimony String}
         Build an antimony version of your model using the documentation to help you.
-        Assign your antimony to a variable inside `model\_strings.py' so that you can import the
-        string inside the `control\_script.py'.
+        Assign your antimony to a variable inside {model_strings.py~} so that you can import the
+        string inside the \bash{control_script.py}.
+    \end{Task}
+
+    It is not always obvious how to use Antimony and the docs are not always helpful
+    for every question you might have. However, there is an alternative option. The tellurium package
+    has fairly comprehensive conversion facilities that can directly convert SBML to antimony. This means
+    that it is possible to build a SBML model using whichever tool you like and then convert it into an
+    antimony string. Therefore, if you cannot figure out how to implement a model feature using antimony,
+    build the model in Copasi, export the sbml and then convert it into an antimony string to see
+    the antimony syntax for that feature. The auto-generated antimony string is somewhat bloated
+    so I always prefer to write the string myself. However, if I ever get stuck with a feature, I'll
+    write a toy model in COPASI which implements the feature and autogenerate the antimony to see how its done.
+    \begin{Task}[label=ReverseEnvineeringAntimony]{Reverse engineer an antimony string}
+        Download an sbml model from \href{https://www.ebi.ac.uk/biomodels/}{BioModels}. Don't spend too long picking
+        but you may as well try to find one that is relevant to your own research. Scour the tellurium documentation
+        for the function to convert sbml into antimony and then use it.
     \end{Task}
 
     \subsection{Model loading}

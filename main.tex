@@ -45,6 +45,9 @@ title=Task~\thetcbcounter: #2,
 #1
 }
 
+\usepackage{subfig}
+
+
 % define commands for easy access
 \newcommand{\note}[1]{\begin{noteBox}
                           \textbf{Note:} #1
@@ -67,13 +70,24 @@ title=Task~\thetcbcounter: #2,
 
 \usepackage{minted}
 
-\usepackage{natbib}
-\bibliographystyle{plainnat}
 
 \usepackage{graphicx}
 \usepackage{parskip}
 %always make last package imported
 %\usepackage{cleveref}
+\usepackage{xparse}
+
+\NewDocumentCommand{\code}{v}{%
+\texttt{\textcolor{grey}{#1}}%
+}
+
+\newcommand{\bash}[1]{\mintinline{bash}{#1}}
+\newcommand{\python}[1]{\mintinline{python}{#1}}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
 
 \title{Modelling stuff}
 \author{Ciaran Welsh}
@@ -84,16 +98,19 @@ title=Task~\thetcbcounter: #2,
 
     \section{Introduction}
     This document is essentially a list of practical computational exercises designed to try and distribute some of what
-    I have learnt over the years.
+    I have learnt over the years. Importantly, what is described here is only one way of organising
+    a modelling project, but it has been refined through experience and is what works best for me.
+    Hopefully it will also work for you.
 
     \section{Reading material}
     Here are some suggested papers to read preferably before the tutorial sessions. The better you understand this
     stuff before the tutorials, the more you'll get out of them.
-
+%
     \begin{itemize}
         \item \cite{raue2013lessons}
         \item \cite{alon2007network}
         \item \href{https://www.tutorialspoint.com/python/python_modules.htm}{Python Modules, packages and subpackages}
+        \item \href{https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners}{Introduction to GitHub}
     \end{itemize}
 
     \subfile{EnvConfig/environment_config.tex}
